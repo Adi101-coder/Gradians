@@ -1,0 +1,124 @@
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .star {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .star {
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.6);
+  opacity: 0.3;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  border-radius: 50%;
+  animation: shoot 3s linear infinite;
+}
+
+.shooting-star-1 {
+  top: 20%;
+  width: 100px;
+  animation-delay: 0s;
+  animation-duration: 4s;
+}
+
+.shooting-star-2 {
+  top: 60%;
+  width: 80px;
+  animation-delay: 2s;
+  animation-duration: 3s;
+}
+
+.shooting-star-3 {
+  top: 40%;
+  width: 120px;
+  animation-delay: 4s;
+  animation-duration: 5s;
+}
+
+@keyframes shoot {
+  0% {
+    left: -100px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+[data-theme="light"] .shooting-star {
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  opacity: 0.4;
+}
+
+/* Constellation effect */
+.starfield::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, transparent, transparent 2px, var(--accent-primary) 3px, var(--accent-primary) 4px, transparent 4px),
+    radial-gradient(2px 2px at 40px 70px, transparent, transparent 2px, rgba(255,255,255,0.3) 3px, rgba(255,255,255,0.3) 4px, transparent 4px),
+    radial-gradient(1px 1px at 90px 40px, transparent, transparent 2px, var(--accent-primary) 3px, var(--accent-primary) 4px, transparent 4px);
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  animation: constellation 20s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes constellation {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(-150px) translateY(-150px);
+  }
+}
+
+@media (max-width: 768px) {
+  .starfield {
+    display: none;
+  }
+}

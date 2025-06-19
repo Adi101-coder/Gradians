@@ -1,0 +1,119 @@
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --accent-primary: #27ae60;
+  --accent-secondary: #2ecc71;
+  --border-color: #e1e5e9;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --card-bg: #ffffff;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #27ae60, #2ecc71);
+  --gradient-hero: linear-gradient(135deg, #2ecc71, #27ae60, #16a085);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent-primary: #2ecc71;
+  --accent-secondary: #27ae60;
+  --border-color: #404040;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --card-bg: #2d2d2d;
+  
+  --gradient-primary: linear-gradient(135deg, #2ecc71, #27ae60);
+  --gradient-hero: linear-gradient(135deg, #27ae60, #2ecc71, #16a085);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  transform: translateY(0);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
